@@ -112,13 +112,51 @@ const questions = () => {
           message: 'Provide a step-by-step description of how to get the development environment running:',
           when: ({ confirmInstall }) => confirmInstall
         },
-
+        // -- Usage Instructions --
+        {
+          type: 'confirm',
+          name: 'confirmUsage',
+          message: 'Would you like to add usage information for your project?',
+          default: true
+        },
+        {
+          type: 'input',
+          name: 'usage',
+          message: 'Provide instructions and examples for using your project:',
+          when: ({ confirmUsage }) => confirmUsage
+        },
         // -- License --
         {
           type: 'list',
           name: 'license',
           message: 'What did you this project with? (Check all that apply)',
           choices: ['None', 'Apache License 2.0', 'GNU General Public License v3.0', 'MIT License', 'BSD 2-Clause "Simplified" License', 'BSD 3-Clause "New" or "Revised" License', 'Boost Software License 1.0','Creative Commons Zero v1.0 Universal','Eclipse Public License 2.0','GNU Affero General Public License v3.0','GNU General Public License v2.0','GNU Lesser General Public License v2.1','Mozilla Public License 2.0','The Unlicense']
+        },
+        // -- Contributing --
+        {
+          type: 'confirm',
+          name: 'confirmContribute',
+          message: 'Would you like to add a section for how to contribute?',
+          default: true
+        },
+        {
+          type: 'input',
+          name: 'contribute',
+          message: 'Provide guidelines for how to contribute to your projects:',
+          when: ({ confirmContribute }) => confirmContribute
+        },
+        // -- Tests --
+        {
+          type: 'confirm',
+          name: 'confirmTest',
+          message: 'Would you like to add tests written for you project?',
+          default: true
+        },
+        {
+          type: 'input',
+          name: 'test',
+          message: 'Provide examples on how to run the tests:',
+          when: ({ confirmTest }) => confirmTest
         },
         // -- Deployed Link --
         {
