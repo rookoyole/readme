@@ -1,12 +1,40 @@
+const generateProjects = projectsArr => {
+  return `
+
+  ${projectsArr
+  .map(({ install }) => {
+
+  return `
+  ## Installation2
+  ${install}
+  `;
+  })
+  .join('')}
+  `;
+};
+
+
+
+
+
+// create the usage section
+const generateUsage = usageText => {
+  if (!usageText) {
+    return '';
+  }
+  return `
+  ## Installation
+  ${usageText}
+  `;
+};
+
 // create the about section
 const generateAbout = aboutText => {
   if (!aboutText) {
     return '';
   }
-
   return `
-  ##About
-
+  ## About
   ${aboutText}
   `;
 };
@@ -14,7 +42,7 @@ const generateAbout = aboutText => {
 
 module.exports = templateData => {
   // destructure page data by section
-  const { about, ...header } = templateData;
+  const { projects, about, ...header } = templateData;
 
   return `
   # ${header.name}
@@ -28,6 +56,8 @@ module.exports = templateData => {
   * [Usage](#usage)
   * [Credits](#credits)
   * [License](#license)
+
+  ${generateProjects(projects)}
 
 
   ## Questions
