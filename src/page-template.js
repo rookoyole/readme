@@ -80,7 +80,7 @@ const generateAbout = aboutText => {
     return '';
   }
   return `
-  
+
   ## About
 
   ${aboutText}
@@ -154,8 +154,14 @@ module.exports = templateData => {
 
   ## Table of Contents 
 
+  * [Installation](#installation)
+  * [Usage](#usage)
+  * [Contributing](#contributing)
+  * [Test](#test)
+  * [Links](#links)
   * [License](#license)
   * [Questions](#questions)
+  * [About](#about)
   ${generateInstall(install)}
   ${generateUsage(usage)}
   ${generateCont(contribute)}
