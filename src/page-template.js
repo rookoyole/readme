@@ -9,13 +9,14 @@ const generateProjects = projectsArr => {
 };
 
 
-// create the usage section
+// create the installaton section
 const generateInstall = installText => {
   if (!installText) {
     return '';
   }
   return `
-  ## Installation Instructions
+
+  ## Installation
 
   ${installText}
   `;
@@ -27,6 +28,7 @@ const generateUsage = usageText => {
     return '';
   }
   return `
+
   ## Usage
 
   ${usageText}
@@ -39,6 +41,7 @@ const generateCont = contText => {
     return '';
   }
   return `
+
   ## Contributing
 
   ${contText}
@@ -51,6 +54,7 @@ const generateTest = testText => {
     return '';
   }
   return `
+
   ## Tests
 
   ${testText}
@@ -63,6 +67,7 @@ const generateLink = linkText => {
     return '';
   }
   return `
+
   ## Links
 
   ${linkText}
@@ -75,6 +80,7 @@ const generateAbout = aboutText => {
     return '';
   }
   return `
+  
   ## About
 
   ${aboutText}
@@ -146,17 +152,15 @@ module.exports = templateData => {
 
   ${description}
 
-  * [Installation](#installation)
-  * [Usage](#usage)
-  * [Credits](#credits)
-  * [License](#license)
+  ## Table of Contents 
 
+  * [License](#license)
+  * [Questions](#questions)
   ${generateInstall(install)}
   ${generateUsage(usage)}
   ${generateCont(contribute)}
   ${generateTest(test)}
   ${generateLink(link)}
-
   ## License
 
   ${license}
